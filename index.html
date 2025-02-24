@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7fafc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Partie gauche : Formulaire d'entrée -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h1 class="text-3xl font-bold text-center mb-6">Informations Personnelles</h1>
+            <form id="infoForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
+                    <input type="text" id="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div class="mb-4">
+                    <label for="age" class="block text-sm font-medium text-gray-700">Âge</label>
+                    <input type="number" id="age" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div class="mb-4">
+                    <label for="photo" class="block text-sm font-medium text-gray-700">Photo URL</label>
+                    <input type="url" id="photo" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+                </div>
+                <div id="experienceContainer">
+                    <h2 class="text-lg font-semibold mb-2">Expériences Professionnelles</h2>
+                    <div class="experience mb-4">
+                        <input type="text" placeholder="Poste" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
+                        <input type="text" placeholder="Entreprise" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
+                        <input type="text" placeholder="Années" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
+                    </div>
+                </div>
+                <button type="button" id="addExperience" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Ajouter une expérience</button>
+            </form>
+        </div>
+
+        <!-- Partie droite : Aperçu des informations -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h1 class="text-3xl font-bold text-center mb-6">Aperçu du CV</h1>
+            <div id="previewContent">
+                <h2 class="font-bold" id="previewName"></h2>
+                <p id="previewAge"></p>
+                <p id="previewEmail"></p>
+                <img id="previewPhoto" src="" alt="Photo" class="rounded-full w-32 h-32 mb-4 hidden">
+                <h3 class="font-semibold mt-4">Expériences Professionnelles:</h3>
+                <div id="previewExperiences"></div>
+                <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded">Télécharger mon CV</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const infoForm = document.getElementById('infoForm');
+
+        infoForm.addEventListener('input', function() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const email = document.getElementById('email').value;
+            const photo = document.getElementById('photo').value;
+
+            document.getElementById('previewName').textContent = name || 'Votre Nom';
+            document.getElementById('previewAge').textContent = age ? `Âge: ${age}` : 'Votre Âge';
+            document.getElementById('previewEmail').textContent = email || 'Votre Email';
+            document.getElementById('previewPhoto').src = photo;
+            document.getElementById('previewPhoto').classList.toggle('hidden', !photo);
+
+            const experienceElements = document.querySelectorAll('.experience');
+            let experiences = '';
+            experienceElements.forEach(exp => {
+                const poste = exp.children[0].value;
+                const entreprise = exp.children[1].value;
+                const annees = exp.children[2].value;
+
+                if (poste && entreprise && annees) {
+                    experiences += `<p><strong>${poste}</strong> chez ${entreprise} (${annees})</p>`;
+                }
+            });
+            document.getElementById('previewExperiences').innerHTML = experiences || 'Aucune expérience ajoutée.';
+        });
+
+        document.getElementById('addExperience').addEventListener('click', function() {
+            const experienceContainer = document.getElementById('experienceContainer');
+            const newExperience = document.createElement('div');
+            newExperience.classList.add('experience', 'mb-4');
+            newExperience.innerHTML = `
+                <input type="text" placeholder="Poste" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
+                <input type="text" placeholder="Entreprise" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
+                <input type="text" placeholder="Années" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
+            `;
+            experienceContainer.appendChild(newExperience);
+        });
+
+        document.getElementById('downloadCV').addEventListener('click', function() {
+            alert('Fonction de téléchargement à implémenter !');
+        });
+    </script>
+</body>
+</html>
