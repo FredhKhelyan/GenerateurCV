@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Générateur de CV</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f7fafc;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container mx-auto p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -29,9 +25,9 @@
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                     <input type="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
                 </div>
-                <div class="mb-4">
+                <div class="mb-4"
                     <label for="photo" class="block text-sm font-medium text-gray-700">Photo URL</label>
-                    <input type="url" id="photo" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+                    <input type="file" id="photo" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
                 </div>
                 <div id="experienceContainer">
                     <h2 class="text-lg font-semibold mb-2">Expériences Professionnelles</h2>
@@ -52,58 +48,15 @@
                 <h2 class="font-bold" id="previewName"></h2>
                 <p id="previewAge"></p>
                 <p id="previewEmail"></p>
-                <img id="previewPhoto" src="" alt="Photo" class="rounded-full w-32 h-32 mb-4 hidden">
+                <div class="vue_image"></div>
                 <h3 class="font-semibold mt-4">Expériences Professionnelles:</h3>
                 <div id="previewExperiences"></div>
-                <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded">Télécharger mon CV</button>
+                <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded" onclick ="imprimer()">Télécharger mon CV</button>
             </div>
         </div>
     </div>
 
-    <script>
-        const infoForm = document.getElementById('infoForm');
-
-        infoForm.addEventListener('input', function() {
-            const name = document.getElementById('name').value;
-            const age = document.getElementById('age').value;
-            const email = document.getElementById('email').value;
-            const photo = document.getElementById('photo').value;
-
-            document.getElementById('previewName').textContent = name || 'Votre Nom';
-            document.getElementById('previewAge').textContent = age ? `Âge: ${age}` : 'Votre Âge';
-            document.getElementById('previewEmail').textContent = email || 'Votre Email';
-            document.getElementById('previewPhoto').src = photo;
-            document.getElementById('previewPhoto').classList.toggle('hidden', !photo);
-
-            const experienceElements = document.querySelectorAll('.experience');
-            let experiences = '';
-            experienceElements.forEach(exp => {
-                const poste = exp.children[0].value;
-                const entreprise = exp.children[1].value;
-                const annees = exp.children[2].value;
-
-                if (poste && entreprise && annees) {
-                    experiences += `<p><strong>${poste}</strong> chez ${entreprise} (${annees})</p>`;
-                }
-            });
-            document.getElementById('previewExperiences').innerHTML = experiences || 'Aucune expérience ajoutée.';
-        });
-
-        document.getElementById('addExperience').addEventListener('click', function() {
-            const experienceContainer = document.getElementById('experienceContainer');
-            const newExperience = document.createElement('div');
-            newExperience.classList.add('experience', 'mb-4');
-            newExperience.innerHTML = `
-                <input type="text" placeholder="Poste" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
-                <input type="text" placeholder="Entreprise" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
-                <input type="text" placeholder="Années" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
-            `;
-            experienceContainer.appendChild(newExperience);
-        });
-
-        document.getElementById('downloadCV').addEventListener('click', function() {
-            alert('Fonction de téléchargement à implémenter !');
-        });
-    </script>
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>  
 </body>
 </html>
