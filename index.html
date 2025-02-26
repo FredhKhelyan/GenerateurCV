@@ -11,7 +11,7 @@
     <div class="container mx-auto p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Partie gauche : Formulaire d'entrée -->
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h1 class="text-3xl font-bold text-center mb-6">Informations Personnelles</h1>
+            <h3 class="text-lg font-semibold mb-2">Informations Personnelles</h3>
             <form id="infoForm">
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
@@ -21,20 +21,64 @@
                     <label for="age" class="block text-sm font-medium text-gray-700">Âge</label>
                     <input type="number" id="age" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
                 </div>
+                
+                <label class="block text-sm font-medium text-gray-700">Situation Matrimoniale</label>
+                <div class="flex items-center space-x-3">
+                    <input type="radio" id="celibataire" name="statut" value="celibataire" class="h-4 w-4 text-blue-500 border-gray-300 focus:ring-blue-500">
+                    <label for="celibataire" class="text-gray-700">Célibataire</label>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <input type="radio" id="marie" name="statut" value="marie" class="h-4 w-4 text-green-500 border-gray-300 focus:ring-green-500">
+                    <label for="marie" class="text-gray-700">Marié(e)</label>
+                  </div>
+
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                     <input type="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                    
                 </div>
-                <div class="mb-4"
+                <div class="mb-4">
                     <label for="photo" class="block text-sm font-medium text-gray-700">Photo URL</label>
                     <input type="file" id="photo" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
                 </div>
+
+
+                <div id="formation">
+                    <h3 class="text-lg font-semibold mb-2">Formation</h3>
+                    <div class="formation mb-4">
+                        <input type="text" placeholder="Diplome Obtenu" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="diplome" required>
+                        <input type="text" placeholder="Etablissement" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="etablissement"required>
+                        <input type="text" placeholder="anneé" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="annee"required>
+                    </div>
+                </div>
+                <button type="button" id="addformation" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Ajouter une formation</button>
+
+
+                <div id="centre d'interet">
+                    <h3 class="text-lg font-semibold mb-2">Centre D'interet</h3>
+                    <div class="centre d'interet mb-4">
+                        <input type="text" placeholder="Loisir1" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="c1" required>
+                        <input type="text" placeholder="Loisir2" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="c2" required>
+                        <input type="text" placeholder="Passion" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="c3" required>
+                    </div>
+                </div>
+
+                <div id="langue">
+                    <h3 class="text-lg font-semibold mb-2">Langues</h3>
+                    <div class="langue mb-4">
+                        <input type="text" placeholder="Langue Maitrisé" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="l1" required>
+                        <input type="text" placeholder="Niveau de compétence" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="niveau" required>
+                    </div>
+                </div>
+                <button type="button" id="addformation" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Ajouter une langue</button>
+
+
                 <div id="experienceContainer">
-                    <h2 class="text-lg font-semibold mb-2">Expériences Professionnelles</h2>
+                    <h3 class="text-lg font-semibold mb-2">Expériences Professionnelles</h3>
                     <div class="experience mb-4">
-                        <input type="text" placeholder="Poste" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
-                        <input type="text" placeholder="Entreprise" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
-                        <input type="text" placeholder="Années" class="block w-full border border-gray-300 rounded-md p-2 mb-2" required>
+                        <input type="text" id = "poste" placeholder="Poste" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="poste" required>
+                        <input type="text" id = "entreprise" placeholder="Entreprise" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="entreprise" required>
+                        <input type="text"  id = "annee" placeholder="Années" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="annee" required>
                     </div>
                 </div>
                 <button type="button" id="addExperience" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Ajouter une expérience</button>
@@ -50,9 +94,14 @@
                 <p id="previewEmail"></p>
                 <div class="vue_image"></div>
                 <h3 class="font-semibold mt-4">Expériences Professionnelles:</h3>
-                <div id="previewExperiences"></div>
-                <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded" onclick ="imprimer()">Télécharger mon CV</button>
+                <div id="previewExperiences">
+                    <p id="previewPoste"></p>  
+                    <p id="previewEntreprise"></p>
+                    <p id="previewAnnee"></p>
+                </div>
+                
             </div>
+            <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded" onclick ="imprimer()">Télécharger mon CV</button>
         </div>
     </div>
 
