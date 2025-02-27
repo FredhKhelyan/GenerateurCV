@@ -46,9 +46,9 @@
                 <div id="formation">
                     <h3 class="text-lg font-semibold mb-2">Formation</h3>
                     <div class="formation mb-4">
-                        <input type="text" placeholder="Diplome Obtenu" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="diplome" required>
-                        <input type="text" placeholder="Etablissement" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="etablissement"required>
-                        <input type="text" placeholder="anneé" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="annee"required>
+                        <input type="text" placeholder="Diplome Obtenu" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="diplome" required>
+                        <input type="text" placeholder="Etablissement" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="etablissement"required>
+                        <input type="text" placeholder="anneé" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="anneed"required>
                     </div>
                 </div>
                 <button type="button" id="addformation" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Ajouter une formation</button>
@@ -57,20 +57,20 @@
                 <div id="centre d'interet">
                     <h3 class="text-lg font-semibold mb-2">Centre D'interet</h3>
                     <div class="centre d'interet mb-4">
-                        <input type="text" placeholder="Loisir1" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="c1" required>
-                        <input type="text" placeholder="Loisir2" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="c2" required>
-                        <input type="text" placeholder="Passion" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="c3" required>
+                        <input type="text" placeholder="Loisir1" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="c1" required>
+                        <input type="text" placeholder="Loisir2" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="c2" required>
+                        <input type="text" placeholder="Passion" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="c3" required>
                     </div>
                 </div>
 
                 <div id="langue">
                     <h3 class="text-lg font-semibold mb-2">Langues</h3>
                     <div class="langue mb-4">
-                        <input type="text" placeholder="Langue Maitrisé" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="l1" required>
-                        <input type="text" placeholder="Niveau de compétence" class="block w-full border border-gray-300 rounded-md p-2 mb-2" name="niveau" required>
+                        <input type="text" placeholder="Langue Maitrisé" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="l1" required>
+                        <input type="text" placeholder="Niveau de compétence" class="block w-full border border-gray-300 rounded-md p-2 mb-2" id="niveau" required>
                     </div>
                 </div>
-                <button type="button" id="addformation" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Ajouter une langue</button>
+                <button type="button" id="addlangue" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Ajouter une langue</button>
 
 
                 <div id="experienceContainer">
@@ -90,8 +90,9 @@
             <h1 class="text-3xl font-bold text-center mb-6">Aperçu du CV</h1>
             <div id="previewContent">
                 <h2 class="font-bold" id="previewName"></h2>
-                <p id="previewAge"></p>
+                <p class="font-bold"><span id="previewAge"></span></p>
                 <p id="previewEmail"></p>
+                <p id="previewStatut"></p>
                 <div class="vue_image"></div>
                 <h3 class="font-semibold mt-4">Expériences Professionnelles:</h3>
                 <div id="previewExperiences">
@@ -102,6 +103,7 @@
                 
             </div>
             <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded" onclick ="imprimer()">Télécharger mon CV</button>
+            <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded" onclick ="Enregistrement()">Enregistrer</button>
         </div>
     </div>
 
