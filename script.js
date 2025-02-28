@@ -4,10 +4,12 @@
         infoForm.addEventListener('input', function() {
             const name = document.getElementById('name').value;
             const age = document.getElementById('age').value;
+            const numero = document.getElementById('numero').value;
             const email = document.getElementById('email').value;
             const photo = document.getElementById('photo').value;
             document.getElementById('previewName').textContent = name ? `Nom: ${name}`: 'Votre Nom';
             document.getElementById('previewAge').textContent = age ? `Âge: ${age}` : 'Votre Âge';
+            document.getElementById('previewNumero').textContent = numero ? `Numéro: ${numero}` : 'Votre Numero';
             document.getElementById('previewEmail').textContent = email ? `email: ${email}` : 'Votre email';
             document.getElementById('previewPhoto').src = photo;
             document.getElementById('previewPhoto').classList.toggle('hidden', !photo);
@@ -28,44 +30,42 @@ annee.addEventListener('input', function(){
 });
 
 //formation
-// var etablissement = document.getElementById('etablissement');
-// poste.addEventListener('input', function(){
-//     previewPoste.textContent = "Etablissement :" + this.value;
-// });
-// var diplome = document.getElementById('diplome');
-// diplome.addEventListener('input', function(){
-//     previewEntreprise.textContent = "Diplome obtenu :" + this.value;
-// });
-// var anneed = document.getElementById('anneed');
-// anneed.addEventListener('input', function(){
-//     previewAnnee.textContent = "Annee :" + this.value;
-// });
+var etablissement = document.getElementById('etablissement');
+etablissement.addEventListener('input', function(){
+    previewEtabl.textContent = "Etablissement :" + this.value;
+});
+var diplome = document.getElementById('diplome');
+diplome.addEventListener('input', function(){
+    previewDiplome.textContent = "Diplome obtenu :" + this.value;
+});
+var anneed = document.getElementById('anneed');
+anneed.addEventListener('input', function(){
+    previewAnneed.textContent = "Annee :" + this.value;
+});
 
  //centre d'interet
-
-// var loisir1 = document.getElementById('c1');
-// loisir1.addEventListener('input', function(){
-//     previewPoste.textContent = "Loisir1 :" + this.value;
-// });
-// var loisir2 = document.getElementById('c2');
-// loisir2.addEventListener('input', function(){
-//     previewEntreprise.textContent = "Loisir2 :" + this.value;
-// });
-// var passion = document.getElementById('c3');
-// passion.addEventListener('input', function(){
-//     previewAnnee.textContent = "Passion :" + this.value;
-// })
+var loisir1 = document.getElementById('c1');
+loisir1.addEventListener('input', function(){
+    previewc1.textContent = "Loisir1 :" + this.value;
+});
+var loisir2 = document.getElementById('c2');
+loisir2.addEventListener('input', function(){
+    previewc2.textContent = "Loisir2 :" + this.value;
+});
+var passion = document.getElementById('c3');
+passion.addEventListener('input', function(){
+    previewc3.textContent = "Passion :" + this.value;
+});
 
 //Langues
-
-// var l1 = document.getElementById('l1');
-// poste.addEventListener('input', function(){
-//     previewPoste.textContent = "Langue :"  + this.value;
-// });
-// var l1 = document.getElementById('niveau');
-// l1.addEventListener('input', function(){
-//     previewEntreprise.textContent = "Niveau :" + this.value;
-// });
+var l1 = document.getElementById('l1');
+l1.addEventListener('input', function(){
+    previewL1.textContent = "Langue :"  + this.value;
+});
+var niveau = document.getElementById('niveau');
+niveau.addEventListener('input', function(){
+    previewNiveau.textContent = "Niveau :" + this.value;
+});
 
 
 // statut matrimoniale
@@ -79,26 +79,20 @@ radios.forEach(radio => {
     });
 });
 
-
-
-
-
-
 // affichae de l'image
 document.getElementById('photo').addEventListener('change', function(event) {
     const file = event.target.files[0]; // Récupérer le premier fichier
     if (file) {
         // Créer un lecteur de fichiers
       const reader = new FileReader(); 
-
       reader.onload = function(e) {
         // Créer une balise <img>
         const img = document.createElement('img'); 
         // Définir l'URL de l'image
         img.src = e.target.result; 
         img.alt = 'Image choisie'; 
-        img.style.maxWidth = '100%';
-        img.style.height = 'auto';
+        img.style.maxWidth = '150px';
+        img.style.height = '150px';
         img.style.borderRadius = '50%'; 
         // Ajouter l'image dans la div vue_image
         document.querySelector('.vue_image').innerHTML = ''; // Nettoyer la div avant d'ajouter l'image
@@ -156,22 +150,24 @@ document.getElementById('photo').addEventListener('change', function(event) {
     //vérification du formulaire
         const nom = document.getElementById('name').value;
         const age = document.getElementById('age').value;
+        const numero = document.getElementById('numero').value;
         const email = document.getElementById('email').value;
         const poste = document.getElementById('poste').value;
         const entreprise = document.getElementById('entreprise').value;
+        const annee = document.getElementById('annee').value;
         const photo = document.getElementById('photo').value;
         const etablissement = document.getElementById('etablissement').value;
         const diplome = document.getElementById('diplome').value;
-        const annee = document.getElementById('annee').value;
-        const langue = document.getElementById('langue').value;
+        const anneed = document.getElementById('anneed').value;
+        const langue = document.getElementById('l1').value;
         const niveau = document.getElementById('niveau').value;
         const centre_interet = document.getElementById('c1').value;
         const centre_interet2 = document.getElementById('c2').value;
         const centre_interet3 = document.getElementById('c3').value;
 
-        if(age>=18 || age<=65 || nom.trim() === "" || email.trim() === "" || poste.trim() === "" || 
+        if(age<=18 || age>=65 || nom.trim() === "" || email.trim() === "" || poste.trim() === "" || 
         photo.trim() === "" || entreprise.trim() === "" || etablissement.trim() === "" || diplome.trim() === "" || annee.trim() === "" ||
-        langue.trim() === "" || niveau.trim() === "" || centre_interet.trim() === "" || centre_interet2.trim() === "" || centre_interet3.trim() === ""){
+        langue.trim() === "" || niveau.trim() === "" || centre_interet.trim() === "" || centre_interet2.trim() === "" || centre_interet3.trim() === "" || numero.trim() === "" || anneed.trim() === ""){
            
            alert("veuillez remplir correctement les champs");
 
@@ -181,7 +177,7 @@ document.getElementById('photo').addEventListener('change', function(event) {
         // Ouvre une nouvelle fenêtre
         const printWindow = window.open('', '', 'height=600,width=800');
         // Écrit le contenu dans la fenêtre de l'impression
-        printWindow.document.write('<html><head><title>Impression du CV</title></head><body>');
+        printWindow.document.write('<html><head><title>Mon CV</title></head><body>');
         printWindow.document.write(content);  // Écrit le contenu HTML de la div dans le document de la fenêtre
         printWindow.document.write('</body></html>');
         // Fermeture du document et lancement de l'impression
@@ -192,33 +188,36 @@ document.getElementById('photo').addEventListener('change', function(event) {
 
 
 
-    //stockage local
-
-
+    //stockage local7*
     function Enregistrement(){
         const nom = document.getElementById('name').value;
         const age = document.getElementById('age').value;
+        const numero = document.getElementById('numero').value;
         const email = document.getElementById('email').value;
         const poste = document.getElementById('poste').value;
         const entreprise = document.getElementById('entreprise').value;
+        const annee = document.getElementById('annee').value;
         const photo = document.getElementById('photo').value;
         const etablissement = document.getElementById('etablissement').value;
         const diplome = document.getElementById('diplome').value;
-        const annee = document.getElementById('annee').value;
-        const langue = document.getElementById('langue').value;
+        const anneed = document.getElementById('anneed').value;
+        const langue = document.getElementById('l1').value;
         const niveau = document.getElementById('niveau').value;
         const centre_interet = document.getElementById('c1').value;
         const centre_interet2 = document.getElementById('c2').value;
         const centre_interet3 = document.getElementById('c3').value;
 
-        if(age>=18 || age<=65 || nom.trim() === "" || email.trim() === "" || poste.trim() === "" || 
+        if(age<=18 || age>=65 || nom.trim() === "" || email.trim() === "" || poste.trim() === "" || 
         photo.trim() === "" || entreprise.trim() === "" || etablissement.trim() === "" || diplome.trim() === "" || annee.trim() === "" ||
-        langue.trim() === "" || niveau.trim() === "" || centre_interet.trim() === "" || centre_interet2.trim() === "" || centre_interet3.trim() === ""){
+        langue.trim() === "" || niveau.trim() === "" || centre_interet.trim() === "" || centre_interet2.trim() === "" || centre_interet3.trim() === "" || numero.trim() === "" || anneed.trim() === ""){
            alert("veuillez remplir correctement les champs");
-        }else{
+        }
+        
+        else{
     const donnees = {
         nom:nom,
         age:age,
+        numero:numero,
         email:email,
         poste:poste,
         entreprise:entreprise,
@@ -226,6 +225,7 @@ document.getElementById('photo').addEventListener('change', function(event) {
         etablissement:etablissement,
         diplome:diplome,
         annee:annee,
+        anneed:anneed,
         langue:langue,
         niveau:niveau,
         centre_interet:centre_interet,
@@ -235,7 +235,6 @@ document.getElementById('photo').addEventListener('change', function(event) {
         localStorage.setItem('formData', JSON.stringify(donnees));
        alert("Les données ont été enregistrées avec succès.");
       };
-      
          
     }    
 

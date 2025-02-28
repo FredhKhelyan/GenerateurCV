@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Professionnel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-4 max-w-4xl bg-white shadow-lg my-8">
+        <!-- En-tête / Informations personnelles -->
+        <header class="bg-blue-700 text-white p-6 rounded-t-lg">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                    <h1 class="text-3xl font-bold">Prénom NOM</h1>
+                    <h2 class="text-xl mt-1">Développeur Web Full Stack</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="mb-1"><span class="font-semibold">Email:</span> votre.email@exemple.com</p>
+                    <p class="mb-1"><span class="font-semibold">Téléphone:</span> +33 6 12 34 56 78</p>
+                    <p class="mb-1"><span class="font-semibold">Localisation:</span> Paris, France</p>
+                    <p><span class="font-semibold">LinkedIn:</span> linkedin.com/in/votrenom</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Corps du CV -->
+        <div class="p-6">
+            <!-- Profil / Résumé -->
+            <section class="mb-6">
+                <h3 class="text-xl font-bold border-b-2 border-blue-700 pb-1 mb-3">Profil</h3>
+                <p class="text-gray-700">
+                    Développeur web passionné avec plus de 5 ans d'expérience dans la création d'applications web performantes et conviviales. Expert en JavaScript moderne, React, et Node.js avec une solide connaissance des principes de conception responsive. Habitué au travail en équipe et à la méthodologie Agile.
+                </p>
+            </section>
+
+            <!-- Compétences -->
+            <section class="mb-6">
+                <h3 class="text-xl font-bold border-b-2 border-blue-700 pb-1 mb-3">Compétences</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-semibold text-blue-800">Langages & Frameworks</h4>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li>HTML5 / CSS3 / JavaScript (ES6+)</li>
+                            <li>React / Vue.js / Angular</li>
+                            <li>Node.js / Express</li>
+                            <li>Tailwind CSS / Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-blue-800">Outils & Technologies</h4>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li>Git / GitHub</li>
+                            <li>MongoDB / MySQL / PostgreSQL</li>
+                            <li>Docker / AWS</li>
+                            <li>Jest / Cypress</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expérience professionnelle -->
+            <section class="mb-6">
+                <h3 class="text-xl font-bold border-b-2 border-blue-700 pb-1 mb-3">Expérience professionnelle</h3>
+                
+                <div class="mb-4">
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <h4 class="font-semibold text-blue-800">Développeur Full Stack Senior</h4>
+                        <span class="text-gray-600">Janv. 2022 - Présent</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <span class="font-medium">TechInnovation</span>
+                        <span class="text-gray-600">Paris, France</span>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-700 mt-2">
+                        <li>Développement et maintenance d'applications web pour des clients internationaux</li>
+                        <li>Création d'une architecture microservices utilisant Node.js et Docker</li>
+                        <li>Direction technique d'une équipe de 4 développeurs juniors</li>
+                        <li>Mise en place d'un pipeline CI/CD avec GitHub Actions et AWS</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <h4 class="font-semibold text-blue-800">Développeur Front-End</h4>
+                        <span class="text-gray-600">Sept. 2019 - Déc. 2021</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <span class="font-medium">WebSolutions</span>
+                        <span class="text-gray-600">Lyon, France</span>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-700 mt-2">
+                        <li>Développement d'interfaces utilisateur avec React et Redux</li>
+                        <li>Optimisation des performances et accessibilité (WCAG)</li>
+                        <li>Collaboration avec les designers pour implémenter des maquettes Figma</li>
+                        <li>Migration d'applications legacy vers des technologies modernes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Formation -->
+            <section class="mb-6">
+                <h3 class="text-xl font-bold border-b-2 border-blue-700 pb-1 mb-3">Formation</h3>
+                
+                <div class="mb-3">
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <h4 class="font-semibold text-blue-800">Master en Informatique</h4>
+                        <span class="text-gray-600">2017 - 2019</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between">
+                        <span class="font-medium">Université de Paris</span>
+                        <span class="text-gray-600">Paris, France</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex flex-col md:flex-row justify-between mb-1">
+                        <h4 class="font-semibold text-blue-800">Licence en Informatique</h4>
+                        <span class="text-gray-600">2014 - 2017</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between">
+                        <span class="font-medium">Université de Lyon</span>
+                        <span class="text-gray-600">Lyon, France</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Langues -->
+            <section class="mb-6">
+                <h3 class="text-xl font-bold border-b-2 border-blue-700 pb-1 mb-3">Langues</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                    <li>Français - Langue maternelle</li>
+                    <li>Anglais - Courant (TOEIC 930)</li>
+                    <li>Espagnol - Intermédiaire</li>
+                </ul>
+            </section>
+
+            <!-- Centres d'intérêt -->
+            <section>
+                <h3 class="text-xl font-bold border-b-2 border-blue-700 pb-1 mb-3">Centres d'intérêt</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                    <li>Contribution à des projets open source</li>
+                    <li>Blogging technique</li>
+                    <li>Photographie</li>
+                    <li>Randonnée</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

@@ -21,6 +21,11 @@
                     <label for="age" class="block text-sm font-medium text-gray-700">Âge</label>
                     <input type="number" id="age" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
                 </div>
+
+                <div class="mb-4">
+                    <label for="age" class="block text-sm font-medium text-gray-700">Numéro</label>
+                    <input type="number" id="numero" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
                 
                 <label class="block text-sm font-medium text-gray-700">Situation Matrimoniale</label>
                 <div class="flex items-center space-x-3">
@@ -41,7 +46,6 @@
                     <label for="photo" class="block text-sm font-medium text-gray-700">Photo URL</label>
                     <input type="file" id="photo" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
                 </div>
-
 
                 <div id="formation">
                     <h3 class="text-lg font-semibold mb-2">Formation</h3>
@@ -89,18 +93,40 @@
         <div class="bg-white p-6 rounded-lg shadow-md">
             <h1 class="text-3xl font-bold text-center mb-6">Aperçu du CV</h1>
             <div id="previewContent">
+                <h3 class="font-semibold mt-4">Informations personnelles:</h3>
                 <h2 class="font-bold" id="previewName"></h2>
                 <p class="font-bold"><span id="previewAge"></span></p>
+                <p class="font-bold"><span id="previewNumero"></span></p>
                 <p id="previewEmail"></p>
                 <p id="previewStatut"></p>
                 <div class="vue_image"></div>
+                <hr>
                 <h3 class="font-semibold mt-4">Expériences Professionnelles:</h3>
                 <div id="previewExperiences">
                     <p id="previewPoste"></p>  
                     <p id="previewEntreprise"></p>
                     <p id="previewAnnee"></p>
                 </div>
-                
+                <hr>
+                <h3 class="font-semibold mt-4">Formations:</h3>
+                <div id="previewFormations">
+                    <p id="previewEtabl"></p>  
+                    <p id="previewDiplome"></p>
+                    <p id="previewAnneed"></p>
+                </div>
+                <hr>
+                <h3 class="font-semibold mt-4">Centre d'interet:</h3>
+                <div id="previewCentre">
+                    <p id="previewc1"></p>  
+                    <p id="previewc2"></p>
+                    <p id="previewc3"></p>
+                </div>
+                <hr>
+                <h3 class="font-semibold mt-4">Langues:</h3>
+                <div id="previewLangues">
+                    <p id="previewL1"></p>  
+                    <p id="previewNiveau"></p>
+            </div>
             </div>
             <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded" onclick ="imprimer()">Télécharger mon CV</button>
             <button id="downloadCV" class="mt-4 bg-green-500 text-white py-2 px-4 rounded" onclick ="Enregistrement()">Enregistrer</button>
